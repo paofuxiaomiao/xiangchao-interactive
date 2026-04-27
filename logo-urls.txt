@@ -1,0 +1,14 @@
+长沙: /manus-storage/长沙_88ac0e87.jpg
+株洲: /manus-storage/株洲_7cc49a79.jpg
+湘潭: /manus-storage/湘潭_4be062a8.jpg
+衡阳: /manus-storage/衡阳_b5cd3faa.jpg
+岳阳: /manus-storage/岳阳_75dd5855.jpg
+常德: /manus-storage/常德_8419cabb.jpg
+张家界: /manus-storage/张家界_f2313912.jpg
+益阳: /manus-storage/益阳_eb70ffc9.jpg
+郴州: /manus-storage/郴州_2d99e93f.jpg
+永州: /manus-storage/永州_f529f469.jpg
+怀化: /manus-storage/怀化_0952f803.jpg
+娄底: /manus-storage/娄底_c7886d2c.jpg
+邵阳: /manus-storage/邵阳_a14b48df.jpg
+湘西: /manus-storage/湘西_a6a46744.jpg
