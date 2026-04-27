@@ -1,13 +1,16 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { InteractionProvider } from "./contexts/InteractionContext";
 import Home from "./pages/Home";
 
-function Router() {
+// Get base path from Vite config for GitHub Pages compatibility
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+
+function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -24,7 +27,9 @@ function App() {
         <InteractionProvider>
           <TooltipProvider>
             <Toaster />
-            <Router />
+            <WouterRouter base={base}>
+              <Routes />
+            </WouterRouter>
           </TooltipProvider>
         </InteractionProvider>
       </ThemeProvider>

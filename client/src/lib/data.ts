@@ -85,20 +85,20 @@ export interface CheerSlogan {
 
 // 队徽URL映射
 export const TEAM_LOGOS: Record<string, string> = {
-  changsha: '/manus-storage/changsha_3cf22587.jpg',
-  zhuzhou: '/manus-storage/zhuzhou_c3e08310.jpg',
-  xiangtan: '/manus-storage/xiangtan_2caabb46.jpg',
-  hengyang: '/manus-storage/hengyang_b3ccce3f.jpg',
-  yueyang: '/manus-storage/yueyang_8d2e0645.jpg',
-  changde: '/manus-storage/changde_0611b8b0.jpg',
-  zhangjiajie: '/manus-storage/zhangjiajie_978d6f04.jpg',
-  yiyang: '/manus-storage/yiyang_eeecadc5.jpg',
-  chenzhou: '/manus-storage/chenzhou_210e0fef.jpg',
-  yongzhou: '/manus-storage/yongzhou_31709cb6.jpg',
-  huaihua: '/manus-storage/huaihua_f400fe70.jpg',
-  loudi: '/manus-storage/loudi_7817682f.jpg',
-  shaoyang: '/manus-storage/shaoyang_d4377613.jpg',
-  xiangxi: '/manus-storage/xiangxi_89acde67.jpg',
+  changsha: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/qeVmWFivCLzMEolP.jpg',
+  zhuzhou: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/WIHFkuGLVqKgbUXV.jpg',
+  xiangtan: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/XZiHEQeAXEBXXqpM.jpg',
+  hengyang: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/LspAGDJBWwHqXvud.jpg',
+  yueyang: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/dTRSBFnvlyUhHPlr.jpg',
+  changde: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/gwHyYSrNgCwmnmhn.jpg',
+  zhangjiajie: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/EStpyCWgtKCvEMId.jpg',
+  yiyang: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/pbNNWejkWrPFNVuR.jpg',
+  chenzhou: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/IUpwHSpfYZmXvugJ.jpg',
+  yongzhou: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/WuXIikSTETjwDVrs.jpg',
+  huaihua: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/oOwyArccYoPevpoV.jpg',
+  loudi: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/kLTtySETHoLiIGxB.jpg',
+  shaoyang: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/kwaOATEAWPKKjKYo.jpg',
+  xiangxi: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663342549613/nMUpEOnnzFYFIMCF.jpg',
 };
 
 // 生成球员数据
