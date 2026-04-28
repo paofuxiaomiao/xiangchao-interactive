@@ -20,9 +20,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           alt="Stadium"
           className="w-full h-full object-cover"
         />
-        {/* Light overlays - white/warm gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-[oklch(0.97_0.005_280)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 to-transparent" />
+        {/* Subtle overlays - keep image vivid, only darken slightly for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-[oklch(0.97_0.005_280/90%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
       </div>
 
       {/* Content */}
@@ -48,9 +48,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-display text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight leading-[0.9] mb-6"
           >
-            <span className="text-gray-900">湘超</span>
+            <span className="text-gray-900 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">湘超</span>
             <br />
-            <span className="text-[#DC2626]">互动中心</span>
+            <span className="text-[#DC2626] drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">互动中心</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -58,7 +58,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg sm:text-xl text-gray-600 font-body max-w-xl mb-10 leading-relaxed"
+            className="text-lg sm:text-xl text-gray-700 font-body max-w-xl mb-10 leading-relaxed drop-shadow-[0_0px_4px_rgba(255,255,255,0.9)]"
           >
             14支球队，14座城市，一场属于湖南人的足球盛宴。
             <br />
