@@ -10,7 +10,7 @@ export default function NotFound() {
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'radial-gradient(circle, oklch(0.58 0.22 25 / 20%) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, oklch(0.55 0.22 25 / 20%) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
         }}
       />
@@ -25,25 +25,22 @@ export default function NotFound() {
           <AlertTriangle className="w-12 h-12 text-[#DC2626]" />
         </div>
 
-        <h1 className="font-display text-7xl sm:text-9xl font-black text-white mb-4 tracking-tight">
+        <h1 className="font-display text-7xl sm:text-9xl font-black text-gray-900 mb-4 tracking-tight">
           4<span className="text-[#DC2626]">0</span>4
         </h1>
 
-        <p className="font-mono text-sm text-[oklch(0.5_0.005_280)] tracking-wider mb-2">
+        <p className="font-mono text-sm text-gray-500 tracking-wider mb-2">
           PAGE NOT FOUND
         </p>
-        <p className="font-body text-lg text-[oklch(0.6_0.005_280)] mb-8">
+        <p className="font-body text-lg text-gray-600 mb-8">
           你访问的页面不存在，可能已被移除或地址有误。
         </p>
 
         <button
           onClick={() => setLocation('/')}
           className="inline-flex items-center gap-2 px-6 py-3 bg-[#DC2626] text-white font-display text-sm font-bold tracking-wider
-                     hover:bg-[#EF4444] transition-all duration-300
-                     shadow-[0_0_20px_oklch(0.58_0.22_25/30%)]"
-          style={{
-            clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
-          }}
+                     hover:bg-[#B91C1C] transition-all duration-300 rounded-lg
+                     shadow-lg shadow-red-200/50"
         >
           <Home className="w-4 h-4" />
           返回首页

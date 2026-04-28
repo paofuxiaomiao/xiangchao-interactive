@@ -1,4 +1,4 @@
-/* Cyber Arena - Interactive Center: Voting, Cheering, Comments */
+/* Light Mode - Interactive Center: Voting, Cheering, Comments */
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, MessageSquare, Flame, Send, ThumbsUp, Zap } from 'lucide-react';
@@ -13,32 +13,20 @@ export default function InteractiveCenter() {
 
   const tabs = [
     { id: 'vote' as const, label: '热度投票', icon: Heart, color: '#DC2626' },
-    { id: 'cheer' as const, label: '线上打气', icon: Flame, color: '#39FF14' },
-    { id: 'comment' as const, label: '留言板', icon: MessageSquare, color: '#00D4FF' },
+    { id: 'cheer' as const, label: '线上打气', icon: Flame, color: '#16A34A' },
+    { id: 'comment' as const, label: '留言板', icon: MessageSquare, color: '#0284C7' },
   ];
 
   return (
     <section id="interactive" className="relative py-20 lg:py-28">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("https://d2xsxph8kpxj0f.cloudfront.net/310519663342549613/maCaBegFg79dkZmom7ZdUj/data-viz-bg-7y5QBVPpNsu4smeTc8SFo9.webp")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-      </div>
-
       <div className="container mx-auto relative">
         {/* Section header */}
         <div className="flex items-center gap-3 mb-4">
-          <span className="h-[1px] w-8 bg-[#39FF14]" />
-          <span className="font-mono text-xs text-[#39FF14] tracking-[0.3em]">INTERACTIVE HUB</span>
+          <span className="h-[1px] w-8 bg-[#16A34A]" />
+          <span className="font-mono text-xs text-[#16A34A] tracking-[0.3em]">INTERACTIVE HUB</span>
         </div>
-        <h2 className="font-display text-3xl lg:text-5xl font-bold text-white tracking-tight mb-8">
-          互动<span className="text-[#39FF14]">中心</span>
+        <h2 className="font-display text-3xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-8">
+          互动<span className="text-[#16A34A]">中心</span>
         </h2>
 
         {/* Tab switcher */}
@@ -50,13 +38,13 @@ export default function InteractiveCenter() {
               className={`
                 flex items-center gap-2 px-5 py-2.5 rounded-lg font-body text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap
                 ${activeTab === tab.id
-                  ? 'text-white shadow-[0_0_15px_oklch(0.58_0.22_25/20%)]'
-                  : 'text-[oklch(0.5_0.005_280)] hover:text-white bg-[oklch(0.12_0.01_280/60%)] border border-[oklch(1_0_0/6%)]'
+                  ? 'text-gray-900 shadow-sm'
+                  : 'text-gray-400 hover:text-gray-700 bg-white border border-gray-200'
                 }
               `}
               style={activeTab === tab.id ? {
-                backgroundColor: `${tab.color}20`,
-                border: `1px solid ${tab.color}40`,
+                backgroundColor: `${tab.color}10`,
+                border: `1px solid ${tab.color}30`,
               } : undefined}
             >
               <tab.icon className="w-4 h-4" style={activeTab === tab.id ? { color: tab.color } : undefined} />
@@ -110,7 +98,7 @@ function VotingPanel() {
 
   return (
     <div>
-      <p className="text-sm font-body text-[oklch(0.5_0.005_280)] mb-6">
+      <p className="text-sm font-body text-gray-500 mb-6">
         为你支持的球队投上宝贵的一票！每台设备限投一次。
       </p>
 
@@ -123,25 +111,25 @@ function VotingPanel() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
             className={`
-              glass-panel rounded-xl p-4 transition-all duration-300 cursor-pointer group
-              ${animatingTeam === team.id ? 'ring-2 ring-[#DC2626] shadow-[0_0_30px_oklch(0.58_0.22_25/40%)]' : ''}
-              ${hasVoted && votes[team.id] ? 'ring-1 ring-[#39FF14]/30' : ''}
+              glass-panel rounded-xl p-4 transition-all duration-300 cursor-pointer group hover:shadow-md
+              ${animatingTeam === team.id ? 'ring-2 ring-[#DC2626] shadow-lg shadow-red-100/50' : ''}
+              ${hasVoted && votes[team.id] ? 'ring-1 ring-[#16A34A]/30 bg-green-50/30' : ''}
             `}
             onClick={() => handleVote(team.id)}
           >
             <div className="flex items-center gap-3 mb-3">
-              <img src={team.logo} alt={team.name} className="w-10 h-10 rounded-lg object-cover" />
+              <img src={team.logo} alt={team.name} className="w-10 h-10 rounded-lg object-cover shadow-sm" />
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-sm font-bold text-white">{team.city}</span>
-                  <span className="font-mono text-xs text-[oklch(0.4_0.005_280)]">#{index + 1}</span>
+                  <span className="font-display text-sm font-bold text-gray-900">{team.city}</span>
+                  <span className="font-mono text-xs text-gray-400">#{index + 1}</span>
                 </div>
               </div>
             </div>
 
             {/* Vote bar */}
             <div className="mb-2">
-              <div className="h-2 rounded-full bg-[oklch(0.12_0.01_280)] overflow-hidden">
+              <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
                 <motion.div
                   className="h-full rounded-full"
                   initial={{ width: 0 }}
@@ -150,22 +138,21 @@ function VotingPanel() {
                   transition={{ duration: 0.8, delay: index * 0.05 }}
                   style={{
                     background: `linear-gradient(90deg, ${team.color}, ${team.color}88)`,
-                    boxShadow: `0 0 10px ${team.color}40`,
                   }}
                 />
               </div>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs text-[oklch(0.5_0.005_280)]">
+              <span className="font-mono text-xs text-gray-500">
                 {team.totalVotes.toLocaleString()} 票
               </span>
               {hasVoted && votes[team.id] ? (
-                <span className="text-[10px] font-mono text-[#39FF14] flex items-center gap-1">
+                <span className="text-[10px] font-mono text-[#16A34A] flex items-center gap-1">
                   <ThumbsUp className="w-3 h-3" /> 已投票
                 </span>
               ) : (
-                <span className="text-[10px] font-mono text-[oklch(0.4_0.005_280)] group-hover:text-[#DC2626] transition-colors">
+                <span className="text-[10px] font-mono text-gray-400 group-hover:text-[#DC2626] transition-colors">
                   点击投票
                 </span>
               )}
@@ -196,7 +183,7 @@ function CheeringPanel() {
 
   return (
     <div>
-      <p className="text-sm font-body text-[oklch(0.5_0.005_280)] mb-6">
+      <p className="text-sm font-body text-gray-500 mb-6">
         选择你支持的球队，为他们线上打气！点击口号即可增加热度。
       </p>
 
@@ -209,8 +196,8 @@ function CheeringPanel() {
             className={`
               flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-body font-medium transition-all whitespace-nowrap
               ${selectedTeam.id === team.id
-                ? 'bg-[oklch(0.58_0.22_25/15%)] border border-[#DC2626]/30 text-white'
-                : 'bg-[oklch(0.1_0.01_280/50%)] border border-[oklch(1_0_0/6%)] text-[oklch(0.5_0.005_280)]'
+                ? 'bg-red-50 border border-[#DC2626]/20 text-gray-900'
+                : 'bg-white border border-gray-200 text-gray-500 hover:border-gray-300'
               }
             `}
           >
@@ -233,8 +220,7 @@ function CheeringPanel() {
               transition={{ duration: 1.2 }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"
             >
-              <span className="font-display text-2xl font-bold text-[#39FF14] whitespace-nowrap"
-                style={{ textShadow: '0 0 20px #39FF14, 0 0 40px #39FF14' }}>
+              <span className="font-display text-2xl font-bold text-[#DC2626] whitespace-nowrap">
                 {effect.text}
               </span>
             </motion.div>
@@ -249,15 +235,15 @@ function CheeringPanel() {
                 key={slogan.id}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleCheer(slogan.id, slogan.text)}
-                className="glass-panel rounded-xl p-4 text-center transition-all duration-300 hover:shadow-[0_0_20px_oklch(0.85_0.3_142/20%)] group"
+                className="glass-panel rounded-xl p-4 text-center transition-all duration-300 hover:shadow-md group"
               >
-                <div className="font-body text-base font-semibold text-white mb-2 group-hover:text-[#39FF14] transition-colors">
+                <div className="font-body text-base font-semibold text-gray-800 mb-2 group-hover:text-[#DC2626] transition-colors">
                   {slogan.text}
                 </div>
                 <div className="flex items-center justify-center gap-1.5">
                   <Flame className="w-3.5 h-3.5 text-[#F59E0B]" />
                   <span className="font-mono text-sm font-bold text-[#F59E0B]">{heat}</span>
-                  <span className="font-mono text-[10px] text-[oklch(0.4_0.005_280)]">热度</span>
+                  <span className="font-mono text-[10px] text-gray-400">热度</span>
                 </div>
               </motion.button>
             );
@@ -269,16 +255,16 @@ function CheeringPanel() {
             onClick={() => {
               handleCheer(`team-${selectedTeam.id}`, selectedTeam.slogan);
             }}
-            className="glass-panel rounded-xl p-4 text-center transition-all duration-300 border border-dashed border-[oklch(1_0_0/10%)] hover:border-[#DC2626]/40"
+            className="glass-panel rounded-xl p-4 text-center transition-all duration-300 border border-dashed border-gray-300 hover:border-[#DC2626]/40 hover:shadow-md"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <img src={selectedTeam.logo} alt={selectedTeam.name} className="w-6 h-6 rounded-full object-cover" />
-              <span className="font-body text-sm font-semibold text-white">{selectedTeam.city}专属</span>
+              <span className="font-body text-sm font-semibold text-gray-800">{selectedTeam.city}专属</span>
             </div>
-            <div className="font-body text-xs text-[oklch(0.5_0.005_280)] italic">"{selectedTeam.slogan}"</div>
+            <div className="font-body text-xs text-gray-500 italic">"{selectedTeam.slogan}"</div>
             <div className="flex items-center justify-center gap-1.5 mt-2">
               <Zap className="w-3 h-3 text-[#DC2626]" />
-              <span className="font-mono text-xs text-[oklch(0.4_0.005_280)]">点击打气</span>
+              <span className="font-mono text-xs text-gray-400">点击打气</span>
             </div>
           </motion.button>
         </div>
@@ -316,35 +302,35 @@ function CommentPanel() {
       {/* Comment form */}
       <div className="lg:col-span-2">
         <div className="glass-panel rounded-xl p-6 sticky top-20">
-          <h4 className="font-display text-sm font-bold text-[oklch(0.6_0.005_280)] tracking-wider mb-4">
+          <h4 className="font-display text-sm font-bold text-gray-500 tracking-wider mb-4">
             发表留言
           </h4>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Nickname */}
             <div>
-              <label className="text-[10px] font-mono text-[oklch(0.4_0.005_280)] tracking-wider mb-1 block">昵称</label>
+              <label className="text-[10px] font-mono text-gray-400 tracking-wider mb-1 block">昵称</label>
               <input
                 type="text"
                 value={nickname}
                 onChange={e => setNickname(e.target.value)}
                 placeholder="输入你的昵称"
                 maxLength={20}
-                className="w-full px-3 py-2 rounded-lg bg-[oklch(0.1_0.01_280/60%)] border border-[oklch(1_0_0/8%)]
-                           text-white font-body text-sm placeholder:text-[oklch(0.3_0.005_280)]
-                           focus:border-[#00D4FF]/40 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/20 transition-all"
+                className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-200
+                           text-gray-900 font-body text-sm placeholder:text-gray-400
+                           focus:border-[#0284C7]/40 focus:outline-none focus:ring-1 focus:ring-[#0284C7]/20 transition-all"
               />
             </div>
 
             {/* Team select */}
             <div>
-              <label className="text-[10px] font-mono text-[oklch(0.4_0.005_280)] tracking-wider mb-1 block">支持球队</label>
+              <label className="text-[10px] font-mono text-gray-400 tracking-wider mb-1 block">支持球队</label>
               <select
                 value={selectedTeamId}
                 onChange={e => setSelectedTeamId(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[oklch(0.1_0.01_280/60%)] border border-[oklch(1_0_0/8%)]
-                           text-white font-body text-sm
-                           focus:border-[#00D4FF]/40 focus:outline-none transition-all"
+                className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-200
+                           text-gray-900 font-body text-sm
+                           focus:border-[#0284C7]/40 focus:outline-none transition-all"
               >
                 {TEAMS.map(team => (
                   <option key={team.id} value={team.id}>{team.name}</option>
@@ -355,8 +341,8 @@ function CommentPanel() {
             {/* Type */}
             <div className="flex gap-2">
               {[
-                { type: 'cheer' as const, label: '赛前打气', color: '#39FF14' },
-                { type: 'review' as const, label: '赛后评价', color: '#00D4FF' },
+                { type: 'cheer' as const, label: '赛前打气', color: '#16A34A' },
+                { type: 'review' as const, label: '赛后评价', color: '#0284C7' },
               ].map(t => (
                 <button
                   key={t.type}
@@ -365,13 +351,13 @@ function CommentPanel() {
                   className={`
                     flex-1 py-2 rounded-lg text-xs font-body font-medium transition-all
                     ${commentType === t.type
-                      ? 'text-white'
-                      : 'text-[oklch(0.5_0.005_280)] bg-[oklch(0.1_0.01_280/40%)] border border-[oklch(1_0_0/6%)]'
+                      ? 'text-gray-900'
+                      : 'text-gray-400 bg-gray-50 border border-gray-200'
                     }
                   `}
                   style={commentType === t.type ? {
-                    backgroundColor: `${t.color}15`,
-                    border: `1px solid ${t.color}40`,
+                    backgroundColor: `${t.color}10`,
+                    border: `1px solid ${t.color}30`,
                   } : undefined}
                 >
                   {t.label}
@@ -381,26 +367,26 @@ function CommentPanel() {
 
             {/* Content */}
             <div>
-              <label className="text-[10px] font-mono text-[oklch(0.4_0.005_280)] tracking-wider mb-1 block">留言内容</label>
+              <label className="text-[10px] font-mono text-gray-400 tracking-wider mb-1 block">留言内容</label>
               <textarea
                 value={content}
                 onChange={e => setContent(e.target.value)}
                 placeholder={commentType === 'cheer' ? '为你的球队加油打气吧！' : '分享你的赛后感想...'}
                 maxLength={200}
                 rows={3}
-                className="w-full px-3 py-2 rounded-lg bg-[oklch(0.1_0.01_280/60%)] border border-[oklch(1_0_0/8%)]
-                           text-white font-body text-sm placeholder:text-[oklch(0.3_0.005_280)] resize-none
-                           focus:border-[#00D4FF]/40 focus:outline-none focus:ring-1 focus:ring-[#00D4FF]/20 transition-all"
+                className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-200
+                           text-gray-900 font-body text-sm placeholder:text-gray-400 resize-none
+                           focus:border-[#0284C7]/40 focus:outline-none focus:ring-1 focus:ring-[#0284C7]/20 transition-all"
               />
-              <div className="text-right text-[10px] font-mono text-[oklch(0.3_0.005_280)] mt-1">
+              <div className="text-right text-[10px] font-mono text-gray-400 mt-1">
                 {content.length}/200
               </div>
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-[#00D4FF] text-[#0A0A0F] font-display text-sm font-bold tracking-wider
-                         hover:bg-[#00D4FF]/90 transition-all shadow-[0_0_15px_oklch(0.75_0.15_220/30%)]"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-[#0284C7] text-white font-display text-sm font-bold tracking-wider
+                         hover:bg-[#0369A1] transition-all shadow-md shadow-blue-100/50"
             >
               <Send className="w-4 h-4" />
               发表留言
@@ -414,8 +400,8 @@ function CommentPanel() {
         <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
           {comments.length === 0 ? (
             <div className="glass-panel rounded-xl p-8 text-center">
-              <MessageSquare className="w-8 h-8 text-[oklch(0.3_0.005_280)] mx-auto mb-3" />
-              <p className="font-body text-sm text-[oklch(0.4_0.005_280)]">还没有留言，来做第一个发言的人吧！</p>
+              <MessageSquare className="w-8 h-8 text-gray-300 mx-auto mb-3" />
+              <p className="font-body text-sm text-gray-400">还没有留言，来做第一个发言的人吧！</p>
             </div>
           ) : (
             comments.map((comment, index) => {
@@ -432,21 +418,21 @@ function CommentPanel() {
                     {team && (
                       <img src={team.logo} alt={team.name} className="w-6 h-6 rounded-full object-cover" />
                     )}
-                    <span className="font-body text-sm font-semibold text-white">{comment.nickname}</span>
+                    <span className="font-body text-sm font-semibold text-gray-900">{comment.nickname}</span>
                     <span
                       className="text-[10px] font-mono px-1.5 py-0.5 rounded"
                       style={{
-                        backgroundColor: comment.type === 'cheer' ? '#39FF1415' : '#00D4FF15',
-                        color: comment.type === 'cheer' ? '#39FF14' : '#00D4FF',
+                        backgroundColor: comment.type === 'cheer' ? '#16A34A15' : '#0284C715',
+                        color: comment.type === 'cheer' ? '#16A34A' : '#0284C7',
                       }}
                     >
                       {comment.type === 'cheer' ? '打气' : '评价'}
                     </span>
-                    <span className="text-[10px] font-mono text-[oklch(0.3_0.005_280)] ml-auto">
+                    <span className="text-[10px] font-mono text-gray-400 ml-auto">
                       {new Date(comment.timestamp).toLocaleString('zh-CN', { hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>
-                  <p className="font-body text-sm text-[oklch(0.7_0.005_280)] leading-relaxed pl-9">
+                  <p className="font-body text-sm text-gray-600 leading-relaxed pl-9">
                     {comment.content}
                   </p>
                 </motion.div>

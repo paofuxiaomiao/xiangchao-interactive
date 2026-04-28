@@ -1,4 +1,4 @@
-/* Cyber Arena - Team Dashboard with data visualization */
+/* Light Mode - Team Dashboard with data visualization */
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Users, Target, Award, ChevronRight, Star } from 'lucide-react';
@@ -36,7 +36,7 @@ export default function Dashboard() {
           <span className="h-[1px] w-8 bg-[#DC2626]" />
           <span className="font-mono text-xs text-[#DC2626] tracking-[0.3em]">DATA DASHBOARD</span>
         </div>
-        <h2 className="font-display text-3xl lg:text-5xl font-bold text-white tracking-tight">
+        <h2 className="font-display text-3xl lg:text-5xl font-bold text-gray-900 tracking-tight">
           球队<span className="text-[#DC2626]">数据看板</span>
         </h2>
       </div>
@@ -52,13 +52,13 @@ export default function Dashboard() {
                 className={`
                   flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-300 whitespace-nowrap
                   ${selectedTeam.id === team.id
-                    ? 'bg-[oklch(0.58_0.22_25/20%)] border border-[#DC2626]/40 shadow-[0_0_15px_oklch(0.58_0.22_25/20%)]'
-                    : 'bg-[oklch(0.12_0.01_280/60%)] border border-[oklch(1_0_0/6%)] hover:border-[oklch(1_0_0/15%)]'
+                    ? 'bg-red-50 border border-[#DC2626]/30 shadow-sm'
+                    : 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm'
                   }
                 `}
               >
                 <img src={team.logo} alt={team.name} className="w-7 h-7 rounded-full object-cover" />
-                <span className={`font-body text-sm font-medium ${selectedTeam.id === team.id ? 'text-white' : 'text-[oklch(0.6_0.005_280)]'}`}>
+                <span className={`font-body text-sm font-medium ${selectedTeam.id === team.id ? 'text-gray-900' : 'text-gray-500'}`}>
                   {team.city}
                 </span>
               </button>
@@ -83,7 +83,7 @@ export default function Dashboard() {
                   <img
                     src={selectedTeam.logo}
                     alt={selectedTeam.name}
-                    className="w-20 h-20 rounded-xl object-cover"
+                    className="w-20 h-20 rounded-xl object-cover shadow-sm"
                   />
                   <div
                     className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full flex items-center justify-center font-mono text-xs font-bold text-white"
@@ -93,58 +93,58 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-display text-2xl font-bold text-white">{selectedTeam.name}</h3>
-                  <p className="text-sm text-[oklch(0.5_0.005_280)] font-body">{selectedTeam.stadiumName}</p>
-                  <p className="text-xs text-[oklch(0.4_0.005_280)] font-mono mt-1">{selectedTeam.cultureLine}</p>
+                  <h3 className="font-display text-2xl font-bold text-gray-900">{selectedTeam.name}</h3>
+                  <p className="text-sm text-gray-500 font-body">{selectedTeam.stadiumName}</p>
+                  <p className="text-xs text-gray-400 font-mono mt-1">{selectedTeam.cultureLine}</p>
                 </div>
               </div>
 
               {/* Team slogan */}
-              <div className="mb-6 p-3 rounded-lg bg-[oklch(0.1_0.01_280/60%)] border-l-2" style={{ borderColor: selectedTeam.color }}>
-                <p className="font-body text-sm text-[oklch(0.8_0.005_280)] italic">"{selectedTeam.slogan}"</p>
+              <div className="mb-6 p-3 rounded-lg bg-gray-50 border-l-2" style={{ borderColor: selectedTeam.color }}>
+                <p className="font-body text-sm text-gray-600 italic">"{selectedTeam.slogan}"</p>
               </div>
 
               {/* Quick stats */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="flex items-center gap-2 p-2.5 rounded bg-[oklch(0.1_0.01_280/60%)]">
-                  <Shield className="w-4 h-4 text-[#00D4FF]" />
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50">
+                  <Shield className="w-4 h-4 text-[#0284C7]" />
                   <div>
-                    <div className="font-mono text-xs text-[oklch(0.5_0.005_280)]">教练</div>
-                    <div className="font-body text-sm text-white font-medium">{selectedTeam.coach}</div>
+                    <div className="font-mono text-xs text-gray-400">教练</div>
+                    <div className="font-body text-sm text-gray-800 font-medium">{selectedTeam.coach}</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded bg-[oklch(0.1_0.01_280/60%)]">
-                  <Users className="w-4 h-4 text-[#39FF14]" />
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50">
+                  <Users className="w-4 h-4 text-[#16A34A]" />
                   <div>
-                    <div className="font-mono text-xs text-[oklch(0.5_0.005_280)]">阵容</div>
-                    <div className="font-body text-sm text-white font-medium">{selectedTeam.players.length}人</div>
+                    <div className="font-mono text-xs text-gray-400">阵容</div>
+                    <div className="font-body text-sm text-gray-800 font-medium">{selectedTeam.players.length}人</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded bg-[oklch(0.1_0.01_280/60%)]">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50">
                   <Target className="w-4 h-4 text-[#DC2626]" />
                   <div>
-                    <div className="font-mono text-xs text-[oklch(0.5_0.005_280)]">风格</div>
-                    <div className="font-body text-sm text-white font-medium">{selectedTeam.coachStyle}</div>
+                    <div className="font-mono text-xs text-gray-400">风格</div>
+                    <div className="font-body text-sm text-gray-800 font-medium">{selectedTeam.coachStyle}</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded bg-[oklch(0.1_0.01_280/60%)]">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50">
                   <Award className="w-4 h-4 text-[#F59E0B]" />
                   <div>
-                    <div className="font-mono text-xs text-[oklch(0.5_0.005_280)]">得分王</div>
-                    <div className="font-body text-sm text-white font-medium">{topScorer.name}</div>
+                    <div className="font-mono text-xs text-gray-400">得分王</div>
+                    <div className="font-body text-sm text-gray-800 font-medium">{topScorer.name}</div>
                   </div>
                 </div>
               </div>
 
               {/* Body stats */}
               <div className="mt-4 flex gap-4">
-                <div className="flex-1 text-center p-2 rounded bg-[oklch(0.1_0.01_280/40%)]">
-                  <div className="font-mono text-lg text-white font-bold">{avgHeight}<span className="text-xs text-[oklch(0.5_0.005_280)]">cm</span></div>
-                  <div className="font-mono text-[10px] text-[oklch(0.4_0.005_280)]">平均身高</div>
+                <div className="flex-1 text-center p-2 rounded-lg bg-gray-50">
+                  <div className="font-mono text-lg text-gray-900 font-bold">{avgHeight}<span className="text-xs text-gray-400">cm</span></div>
+                  <div className="font-mono text-[10px] text-gray-400">平均身高</div>
                 </div>
-                <div className="flex-1 text-center p-2 rounded bg-[oklch(0.1_0.01_280/40%)]">
-                  <div className="font-mono text-lg text-white font-bold">{avgWeight}<span className="text-xs text-[oklch(0.5_0.005_280)]">kg</span></div>
-                  <div className="font-mono text-[10px] text-[oklch(0.4_0.005_280)]">平均体重</div>
+                <div className="flex-1 text-center p-2 rounded-lg bg-gray-50">
+                  <div className="font-mono text-lg text-gray-900 font-bold">{avgWeight}<span className="text-xs text-gray-400">kg</span></div>
+                  <div className="font-mono text-[10px] text-gray-400">平均体重</div>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function Dashboard() {
             <div className="lg:col-span-4 flex flex-col gap-4 lg:gap-6">
               {/* Radar chart */}
               <div className="glass-panel rounded-xl p-6 flex-1">
-                <h4 className="font-display text-sm font-bold text-[oklch(0.6_0.005_280)] tracking-wider mb-4">
+                <h4 className="font-display text-sm font-bold text-gray-500 tracking-wider mb-4">
                   球队能力雷达
                 </h4>
                 <RadarChart stats={teamAvgStats} color={selectedTeam.color} />
@@ -161,32 +161,32 @@ export default function Dashboard() {
 
               {/* Season record */}
               <div className="glass-panel rounded-xl p-6">
-                <h4 className="font-display text-sm font-bold text-[oklch(0.6_0.005_280)] tracking-wider mb-4">
+                <h4 className="font-display text-sm font-bold text-gray-500 tracking-wider mb-4">
                   赛季战绩
                 </h4>
                 <div className="grid grid-cols-5 gap-2 text-center">
                   {[
                     { label: '积分', value: selectedTeam.points, color: '#DC2626' },
-                    { label: '胜', value: selectedTeam.wins, color: '#39FF14' },
+                    { label: '胜', value: selectedTeam.wins, color: '#16A34A' },
                     { label: '平', value: selectedTeam.draws, color: '#F59E0B' },
                     { label: '负', value: selectedTeam.losses, color: '#EF4444' },
-                    { label: '净胜', value: selectedTeam.goalsFor - selectedTeam.goalsAgainst, color: '#00D4FF' },
+                    { label: '净胜', value: selectedTeam.goalsFor - selectedTeam.goalsAgainst, color: '#0284C7' },
                   ].map(stat => (
-                    <div key={stat.label} className="p-2 rounded bg-[oklch(0.1_0.01_280/60%)]">
+                    <div key={stat.label} className="p-2 rounded-lg bg-gray-50">
                       <div className="font-mono text-xl font-bold" style={{ color: stat.color }}>
                         {stat.value > 0 && stat.label === '净胜' ? '+' : ''}{stat.value}
                       </div>
-                      <div className="font-mono text-[10px] text-[oklch(0.4_0.005_280)]">{stat.label}</div>
+                      <div className="font-mono text-[10px] text-gray-400">{stat.label}</div>
                     </div>
                   ))}
                 </div>
                 {/* Goals bar */}
                 <div className="mt-4">
-                  <div className="flex justify-between text-[10px] font-mono text-[oklch(0.5_0.005_280)] mb-1">
+                  <div className="flex justify-between text-[10px] font-mono text-gray-500 mb-1">
                     <span>进球 {selectedTeam.goalsFor}</span>
                     <span>失球 {selectedTeam.goalsAgainst}</span>
                   </div>
-                  <div className="h-2 rounded-full bg-[oklch(0.15_0.01_280)] overflow-hidden flex">
+                  <div className="h-2 rounded-full bg-gray-100 overflow-hidden flex">
                     <div
                       className="h-full rounded-l-full transition-all duration-700"
                       style={{
@@ -202,12 +202,12 @@ export default function Dashboard() {
             {/* Roster panel */}
             <div className="lg:col-span-4 glass-panel rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <h4 className="font-display text-sm font-bold text-[oklch(0.6_0.005_280)] tracking-wider">
+                <h4 className="font-display text-sm font-bold text-gray-500 tracking-wider">
                   阵容档案
                 </h4>
                 <button
                   onClick={() => setShowRoster(!showRoster)}
-                  className="flex items-center gap-1 text-xs font-mono text-[#00D4FF] hover:text-[#00D4FF]/80 transition-colors"
+                  className="flex items-center gap-1 text-xs font-mono text-[#0284C7] hover:text-[#0284C7]/80 transition-colors"
                 >
                   {showRoster ? '收起' : '展开全部'}
                   <ChevronRight className={`w-3 h-3 transition-transform ${showRoster ? 'rotate-90' : ''}`} />
@@ -221,8 +221,8 @@ export default function Dashboard() {
                   return (
                     <div key={pos}>
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-[10px] font-mono text-[oklch(0.4_0.005_280)] tracking-wider">{pos}</span>
-                        <span className="flex-1 h-[1px] bg-[oklch(1_0_0/6%)]" />
+                        <span className="text-[10px] font-mono text-gray-400 tracking-wider">{pos}</span>
+                        <span className="flex-1 h-[1px] bg-gray-200" />
                       </div>
                       <div className="space-y-1.5">
                         {(showRoster ? posPlayers : posPlayers.slice(0, 2)).map(player => (

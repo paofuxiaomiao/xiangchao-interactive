@@ -1,5 +1,5 @@
 /* ============================================================
-   HOME PAGE: 湘超互动中心 - Cyber Arena Design
+   HOME PAGE: 湘超互动中心 - Light Mode Design
    Single-page layout with section-based navigation
    ============================================================ */
 import { useState, useEffect, useCallback } from 'react';
@@ -47,12 +47,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Background hex grid - subtle */}
+      {/* Subtle pattern background */}
       <div
-        className="fixed inset-0 pointer-events-none opacity-[0.02] z-0"
+        className="fixed inset-0 pointer-events-none opacity-[0.015] z-0"
         style={{
-          backgroundImage: `url("https://d2xsxph8kpxj0f.cloudfront.net/310519663342549613/maCaBegFg79dkZmom7ZdUj/hex-pattern-4u44sLCNj2wS6TCSNF528i.webp")`,
-          backgroundSize: '500px 500px',
+          backgroundImage: `radial-gradient(circle, oklch(0.55 0.22 25 / 15%) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
         }}
       />
 
@@ -64,23 +64,23 @@ export default function Home() {
         <HeroSection onNavigate={handleNavigate} />
 
         {/* Divider */}
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(1_0_0/8%)] to-transparent" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
 
         <Dashboard />
 
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(1_0_0/8%)] to-transparent" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
 
         <MatchCenter />
 
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(1_0_0/8%)] to-transparent" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
 
         <InteractiveCenter />
 
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(1_0_0/8%)] to-transparent" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
 
         <CultureSection />
 
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(1_0_0/8%)] to-transparent" />
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
 
         <Leaderboard />
       </main>

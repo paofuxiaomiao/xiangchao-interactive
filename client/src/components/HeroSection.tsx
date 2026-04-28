@@ -1,4 +1,4 @@
-/* Cyber Arena - Hero Section with stadium banner and live match ticker */
+/* Light Mode - Hero Section with stadium banner and live match ticker */
 import { motion } from 'framer-motion';
 import { ChevronDown, Zap, Trophy, Users } from 'lucide-react';
 import { TEAMS, MATCHES } from '@/lib/data';
@@ -20,25 +20,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           alt="Stadium"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0.01_280/70%)] via-[oklch(0.06_0.01_280/50%)] to-[oklch(0.08_0.01_280)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.06_0.01_280/60%)] to-transparent" />
+        {/* Light overlays - white/warm gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-[oklch(0.97_0.005_280)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/60 to-transparent" />
       </div>
-
-      {/* Hex grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage: `url("https://d2xsxph8kpxj0f.cloudfront.net/310519663342549613/maCaBegFg79dkZmom7ZdUj/hex-pattern-4u44sLCNj2wS6TCSNF528i.webp")`,
-          backgroundSize: '400px 400px',
-        }}
-      />
-
-      {/* Scanline effect */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)',
-        }}
-      />
 
       {/* Content */}
       <div className="relative container mx-auto pt-24 pb-16 lg:pt-32">
@@ -63,9 +48,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-display text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight leading-[0.9] mb-6"
           >
-            <span className="text-white">湘超</span>
+            <span className="text-gray-900">湘超</span>
             <br />
-            <span className="neon-text">互动中心</span>
+            <span className="text-[#DC2626]">互动中心</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -73,7 +58,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg sm:text-xl text-[oklch(0.7_0.005_280)] font-body max-w-xl mb-10 leading-relaxed"
+            className="text-lg sm:text-xl text-gray-600 font-body max-w-xl mb-10 leading-relaxed"
           >
             14支球队，14座城市，一场属于湖南人的足球盛宴。
             <br />
@@ -88,30 +73,30 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             className="flex flex-wrap gap-6 mb-10"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded bg-[oklch(0.58_0.22_25/15%)] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
                 <Trophy className="w-5 h-5 text-[#DC2626]" />
               </div>
               <div>
-                <div className="font-mono text-xl font-bold text-white">{TEAMS.length}</div>
-                <div className="text-[10px] font-mono text-[oklch(0.5_0.005_280)] tracking-wider">参赛球队</div>
+                <div className="font-mono text-xl font-bold text-gray-900">{TEAMS.length}</div>
+                <div className="text-[10px] font-mono text-gray-400 tracking-wider">参赛球队</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded bg-[oklch(0.75_0.15_220/15%)] flex items-center justify-center">
-                <Zap className="w-5 h-5 text-[#00D4FF]" />
+              <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                <Zap className="w-5 h-5 text-[#0284C7]" />
               </div>
               <div>
-                <div className="font-mono text-xl font-bold text-white">{liveMatches.length}</div>
-                <div className="text-[10px] font-mono text-[oklch(0.5_0.005_280)] tracking-wider">正在直播</div>
+                <div className="font-mono text-xl font-bold text-gray-900">{liveMatches.length}</div>
+                <div className="text-[10px] font-mono text-gray-400 tracking-wider">正在直播</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded bg-[oklch(0.85_0.3_142/15%)] flex items-center justify-center">
-                <Users className="w-5 h-5 text-[#39FF14]" />
+              <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
+                <Users className="w-5 h-5 text-[#16A34A]" />
               </div>
               <div>
-                <div className="font-mono text-xl font-bold text-white">{totalVotes.toLocaleString()}</div>
-                <div className="text-[10px] font-mono text-[oklch(0.5_0.005_280)] tracking-wider">累计投票</div>
+                <div className="font-mono text-xl font-bold text-gray-900">{totalVotes.toLocaleString()}</div>
+                <div className="text-[10px] font-mono text-gray-400 tracking-wider">累计投票</div>
               </div>
             </div>
           </motion.div>
@@ -126,22 +111,16 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             <button
               onClick={() => onNavigate('interactive')}
               className="group relative px-8 py-3 bg-[#DC2626] text-white font-display text-sm font-bold tracking-wider
-                         hover:bg-[#EF4444] transition-all duration-300
-                         shadow-[0_0_20px_oklch(0.58_0.22_25/30%)] hover:shadow-[0_0_30px_oklch(0.58_0.22_25/50%)]"
-              style={{
-                clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
-              }}
+                         hover:bg-[#B91C1C] transition-all duration-300 rounded-lg
+                         shadow-lg shadow-red-200/50 hover:shadow-xl hover:shadow-red-200/60"
             >
               立即参与互动
             </button>
             <button
               onClick={() => onNavigate('dashboard')}
-              className="px-8 py-3 border border-[oklch(1_0_0/15%)] text-white font-display text-sm font-bold tracking-wider
-                         hover:border-[#00D4FF] hover:text-[#00D4FF] transition-all duration-300
-                         bg-[oklch(0.1_0.01_280/50%)] backdrop-blur-sm"
-              style={{
-                clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
-              }}
+              className="px-8 py-3 border border-gray-300 text-gray-700 font-display text-sm font-bold tracking-wider
+                         hover:border-[#0284C7] hover:text-[#0284C7] transition-all duration-300 rounded-lg
+                         bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md"
             >
               查看数据看板
             </button>
@@ -153,13 +132,13 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       {liveMatches.length > 0 && (
         <div className="relative mt-auto">
           <div className="container mx-auto pb-6">
-            <div className="glass-panel rounded-lg p-4">
+            <div className="glass-panel rounded-xl p-4">
               <div className="flex items-center gap-3 mb-3">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#39FF14] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#39FF14]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#16A34A] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#16A34A]" />
                 </span>
-                <span className="font-mono text-xs text-[#39FF14] tracking-wider">LIVE MATCHES</span>
+                <span className="font-mono text-xs text-[#16A34A] tracking-wider">LIVE MATCHES</span>
               </div>
               <div className="flex flex-wrap gap-4">
                 {liveMatches.map(match => {
@@ -167,19 +146,19 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                   const away = TEAMS.find(t => t.id === match.awayTeam);
                   if (!home || !away) return null;
                   return (
-                    <div key={match.id} className="flex items-center gap-3 bg-[oklch(0.1_0.01_280/60%)] rounded px-4 py-2">
+                    <div key={match.id} className="flex items-center gap-3 bg-gray-50 rounded-lg px-4 py-2 border border-gray-100">
                       <div className="flex items-center gap-2">
                         <img src={home.logo} alt={home.name} className="w-6 h-6 rounded-full object-cover" />
-                        <span className="font-body text-sm text-white font-medium">{home.city}</span>
+                        <span className="font-body text-sm text-gray-800 font-medium">{home.city}</span>
                       </div>
-                      <div className="font-mono text-lg font-bold text-white px-2">
-                        {match.homeScore} <span className="text-[oklch(0.4_0.005_280)]">-</span> {match.awayScore}
+                      <div className="font-mono text-lg font-bold text-gray-900 px-2">
+                        {match.homeScore} <span className="text-gray-300">-</span> {match.awayScore}
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="font-body text-sm text-white font-medium">{away.city}</span>
+                        <span className="font-body text-sm text-gray-800 font-medium">{away.city}</span>
                         <img src={away.logo} alt={away.name} className="w-6 h-6 rounded-full object-cover" />
                       </div>
-                      <span className="font-mono text-xs text-[#39FF14] ml-2">{match.time}</span>
+                      <span className="font-mono text-xs text-[#16A34A] ml-2">{match.time}</span>
                     </div>
                   );
                 })}
@@ -200,7 +179,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown className="w-5 h-5 text-[oklch(0.4_0.005_280)]" />
+          <ChevronDown className="w-5 h-5 text-gray-400" />
         </motion.div>
       </motion.div>
     </section>

@@ -1,4 +1,4 @@
-/* Cyber Arena - Glowing SVG Radar Chart */
+/* Light Mode - SVG Radar Chart */
 import { useEffect, useState } from 'react';
 
 interface RadarChartProps {
@@ -70,15 +70,15 @@ export default function RadarChart({ stats, color }: RadarChartProps) {
     <div className="flex justify-center">
       <svg viewBox="0 0 240 240" className="w-full max-w-[280px]">
         <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+          <filter id="softShadow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
           <radialGradient id={`radarGrad-${color.replace('#', '')}`} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={color} stopOpacity="0.3" />
+            <stop offset="0%" stopColor={color} stopOpacity="0.25" />
             <stop offset="100%" stopColor={color} stopOpacity="0.05" />
           </radialGradient>
         </defs>
@@ -89,7 +89,7 @@ export default function RadarChart({ stats, color }: RadarChartProps) {
             key={i}
             d={path}
             fill="none"
-            stroke="oklch(1 0 0 / 6%)"
+            stroke="oklch(0 0 0 / 8%)"
             strokeWidth="0.5"
           />
         ))}
@@ -104,7 +104,7 @@ export default function RadarChart({ stats, color }: RadarChartProps) {
               y1={CENTER}
               x2={x}
               y2={y}
-              stroke="oklch(1 0 0 / 8%)"
+              stroke="oklch(0 0 0 / 10%)"
               strokeWidth="0.5"
             />
           );
@@ -116,7 +116,7 @@ export default function RadarChart({ stats, color }: RadarChartProps) {
           fill={`url(#radarGrad-${color.replace('#', '')})`}
           stroke={color}
           strokeWidth="2"
-          filter="url(#glow)"
+          filter="url(#softShadow)"
           className="transition-all duration-700 ease-out"
         />
 
@@ -128,7 +128,7 @@ export default function RadarChart({ stats, color }: RadarChartProps) {
             cy={point.y}
             r="3"
             fill={color}
-            filter="url(#glow)"
+            filter="url(#softShadow)"
             className="transition-all duration-700 ease-out"
           />
         ))}
@@ -144,7 +144,7 @@ export default function RadarChart({ stats, color }: RadarChartProps) {
                 y={y - 4}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                className="fill-[oklch(0.6_0.005_280)] text-[9px]"
+                className="fill-gray-500 text-[9px]"
                 style={{ fontFamily: 'Rajdhani, sans-serif' }}
               >
                 {item.label}
