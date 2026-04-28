@@ -41,7 +41,7 @@ function MatchCard({ match, index }: { match: Match; index: number }) {
               <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ backgroundColor: liveColor }} />
             </span>
           )}
-          {match.status === 'LIVE' ? `LIVE ${match.time}` : match.status === 'PREVIEW' ? '即将开始' : '已结束'}
+          {match.status === 'LIVE' ? `直播中 ${match.time}` : match.status === 'PREVIEW' ? '即将开始' : '已结束'}
         </span>
       </div>
 
@@ -96,7 +96,7 @@ export default function MatchCenter() {
       <div className="container mx-auto">
         <div className="flex items-center gap-3 mb-4">
           <span className="h-[1px] w-8" style={{ backgroundColor: blueColor }} />
-          <span className="font-mono text-xs tracking-[0.3em]" style={{ color: blueColor }}>MATCH CENTER</span>
+          <span className="font-mono text-xs tracking-[0.3em]" style={{ color: blueColor }}>赛事中心</span>
         </div>
         <h2 className={`font-display text-3xl lg:text-5xl font-bold tracking-tight mb-12 ${textPrimary}`}>
           赛事<span className="neon-text-blue">战报</span>

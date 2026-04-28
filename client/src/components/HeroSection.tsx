@@ -20,7 +20,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       <div className="absolute inset-0">
         <img
           src="https://d2xsxph8kpxj0f.cloudfront.net/310519663342549613/maCaBegFg79dkZmom7ZdUj/hero-banner-SggMt6bUqj4QvJg2tWghFa.webp"
-          alt="Stadium"
+          alt="球场"
           className="w-full h-full object-cover"
         />
         {isDark ? (
@@ -50,7 +50,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           >
             <span className="h-[1px] w-12 bg-[#DC2626]" />
             <span className={`font-mono text-xs tracking-[0.3em] uppercase ${isDark ? 'text-[#DC2626]' : 'text-[#DC2626] drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]'}`}>
-              Hunan Super League 2025
+              湘超联赛 2025 赛季
             </span>
           </motion.div>
 
@@ -159,7 +159,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                   <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDark ? 'bg-[#39FF14]' : 'bg-[#16A34A]'}`} />
                   <span className={`relative inline-flex rounded-full h-2 w-2 ${isDark ? 'bg-[#39FF14]' : 'bg-[#16A34A]'}`} />
                 </span>
-                <span className={`font-mono text-xs tracking-wider ${isDark ? 'text-[#39FF14]' : 'text-[#16A34A]'}`}>LIVE MATCHES</span>
+                <span className={`font-mono text-xs tracking-wider ${isDark ? 'text-[#39FF14]' : 'text-[#16A34A]'}`}>正在直播</span>
               </div>
               <div className="flex flex-wrap gap-4">
                 {liveMatches.map(match => {

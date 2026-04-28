@@ -21,7 +21,7 @@ export default function NotFound() {
         <h1 className={`font-display text-7xl sm:text-9xl font-black mb-4 tracking-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
           4<span className="text-[#DC2626]">0</span>4
         </h1>
-        <p className={`font-mono text-sm tracking-wider mb-2 ${isDark ? 'text-[oklch(0.6_0.005_280)]' : 'text-gray-500'}`}>PAGE NOT FOUND</p>
+        <p className={`font-mono text-sm tracking-wider mb-2 ${isDark ? 'text-[oklch(0.6_0.005_280)]' : 'text-gray-500'}`}>页面未找到</p>
         <p className={`font-body text-lg mb-8 ${isDark ? 'text-[oklch(0.7_0.005_280)]' : 'text-gray-600'}`}>你访问的页面不存在，可能已被移除或地址有误。</p>
         <button onClick={() => setLocation('/')}
           className="inline-flex items-center gap-2 px-6 py-3 bg-[#DC2626] text-white font-display text-sm font-bold tracking-wider hover:bg-[#B91C1C] transition-all duration-300 rounded-lg shadow-lg shadow-red-200/50">

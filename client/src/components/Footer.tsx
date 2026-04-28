@@ -16,7 +16,7 @@ export default function Footer() {
               湘超<span className="text-[#DC2626]">联赛</span>
             </span>
             <span className={`text-[10px] font-mono ml-2 ${isDark ? 'text-[oklch(0.4_0.005_280)]' : 'text-gray-400'}`}>
-              HUNAN SUPER LEAGUE 2025
+              湘超联赛 2025 赛季
             </span>
           </div>
           <div className={`flex items-center gap-6 text-[10px] font-mono ${isDark ? 'text-[oklch(0.4_0.005_280)]' : 'text-gray-400'}`}>
@@ -24,7 +24,7 @@ export default function Footer() {
             <span>·</span>
             <span>数据仅供展示</span>
             <span>·</span>
-            <span>v1.0</span>
+            <span>版本 1.0</span>
           </div>
         </div>
         <div className="mt-6 h-[1px] bg-gradient-to-r from-transparent via-[#DC2626]/15 to-transparent" />

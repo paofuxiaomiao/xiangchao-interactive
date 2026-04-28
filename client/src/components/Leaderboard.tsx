@@ -35,7 +35,7 @@ export default function Leaderboard() {
       <div className="container mx-auto">
         <div className="flex items-center gap-3 mb-4">
           <span className="h-[1px] w-8 bg-[#DC2626]" />
-          <span className="font-mono text-xs text-[#DC2626] tracking-[0.3em]">LEAGUE STANDINGS</span>
+          <span className="font-mono text-xs text-[#DC2626] tracking-[0.3em]">联赛榜单</span>
         </div>
         <h2 className={`font-display text-3xl lg:text-5xl font-bold tracking-tight mb-8 ${textPrimary}`}>
           联赛<span className="neon-text">榜单</span>

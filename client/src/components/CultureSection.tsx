@@ -21,7 +21,7 @@ export default function CultureSection() {
       <div className="container mx-auto relative">
         <div className="flex items-center gap-3 mb-4">
           <span className="h-[1px] w-8 bg-[#F59E0B]" />
-          <span className="font-mono text-xs text-[#F59E0B] tracking-[0.3em]">CULTURE & HERITAGE</span>
+          <span className="font-mono text-xs text-[#F59E0B] tracking-[0.3em]">文化传承</span>
         </div>
         <h2 className={`font-display text-3xl lg:text-5xl font-bold tracking-tight mb-8 ${textPrimary}`}>
           主场<span className="text-[#F59E0B]">文化</span>

@@ -43,7 +43,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
             湘超<span className="text-[#DC2626]">联赛</span>
           </span>
           <span className={`hidden sm:inline text-[10px] font-mono tracking-widest ml-1 ${isDark ? 'text-[#00D4FF] opacity-70' : 'text-[#0284C7] opacity-70'}`}>
-            INTERACTIVE
+            互动平台
           </span>
         </button>
 
@@ -103,7 +103,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDark ? 'bg-[#39FF14]' : 'bg-[#16A34A]'}`} />
               <span className={`relative inline-flex rounded-full h-2 w-2 ${isDark ? 'bg-[#39FF14]' : 'bg-[#16A34A]'}`} />
             </span>
-            <span className={`text-[10px] font-mono tracking-wider ${isDark ? 'text-[#39FF14]' : 'text-[#16A34A]'}`}>LIVE</span>
+            <span className={`text-[10px] font-mono tracking-wider ${isDark ? 'text-[#39FF14]' : 'text-[#16A34A]'}`}>直播</span>
           </div>
         </div>
 

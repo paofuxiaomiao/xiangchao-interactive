@@ -39,7 +39,7 @@ export default function Dashboard() {
       <div className="container mx-auto mb-12">
         <div className="flex items-center gap-3 mb-4">
           <span className="h-[1px] w-8 bg-[#DC2626]" />
-          <span className={`font-mono text-xs tracking-[0.3em] ${isDark ? 'text-[#DC2626]' : 'text-[#DC2626]'}`}>DATA DASHBOARD</span>
+          <span className={`font-mono text-xs tracking-[0.3em] ${isDark ? 'text-[#DC2626]' : 'text-[#DC2626]'}`}>数据看板</span>
         </div>
         <h2 className={`font-display text-3xl lg:text-5xl font-bold tracking-tight ${textPrimary}`}>
           球队<span className="neon-text">数据看板</span>

@@ -40,7 +40,7 @@ export default function InteractiveCenter() {
       <div className="container mx-auto relative">
         <div className="flex items-center gap-3 mb-4">
           <span className="h-[1px] w-8" style={{ backgroundColor: isDark ? '#39FF14' : '#16A34A' }} />
-          <span className="font-mono text-xs tracking-[0.3em]" style={{ color: isDark ? '#39FF14' : '#16A34A' }}>INTERACTIVE HUB</span>
+          <span className="font-mono text-xs tracking-[0.3em]" style={{ color: isDark ? '#39FF14' : '#16A34A' }}>互动中心</span>
         </div>
         <h2 className={`font-display text-3xl lg:text-5xl font-bold tracking-tight mb-8 ${textPrimary}`}>
           互动<span className="neon-text-green">中心</span>
