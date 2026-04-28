@@ -23,7 +23,7 @@ function Routes() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
+      <ThemeProvider defaultTheme="light" switchable>
         <InteractionProvider>
           <TooltipProvider>
             <Toaster />

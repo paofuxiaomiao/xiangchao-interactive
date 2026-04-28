@@ -1,8 +1,8 @@
 /* ============================================================
-   HOME PAGE: 湘超互动中心 - Light Mode Design
-   Single-page layout with section-based navigation
+   HOME PAGE: 湘超互动中心 - Dual Theme (Light/Dark)
    ============================================================ */
 import { useState, useEffect, useCallback } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import Dashboard from '@/components/Dashboard';
@@ -16,8 +16,9 @@ const SECTIONS = ['hero', 'dashboard', 'matches', 'interactive', 'culture', 'lea
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('hero');
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
-  // Scroll spy
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -29,59 +30,45 @@ export default function Home() {
       },
       { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
     );
-
     SECTIONS.forEach(id => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-
     return () => observer.disconnect();
   }, []);
 
   const handleNavigate = useCallback((section: string) => {
     const el = document.getElementById(section);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Subtle pattern background */}
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-300">
+      {/* Pattern background */}
       <div
-        className="fixed inset-0 pointer-events-none opacity-[0.015] z-0"
+        className="fixed inset-0 pointer-events-none z-0"
         style={{
-          backgroundImage: `radial-gradient(circle, oklch(0.55 0.22 25 / 15%) 1px, transparent 1px)`,
+          opacity: isDark ? 0.03 : 0.015,
+          backgroundImage: isDark
+            ? `radial-gradient(circle, oklch(0.58 0.22 25 / 15%) 1px, transparent 1px)`
+            : `radial-gradient(circle, oklch(0.55 0.22 25 / 15%) 1px, transparent 1px)`,
           backgroundSize: '40px 40px',
         }}
       />
 
-      {/* Navigation */}
       <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
 
-      {/* Main content */}
       <main className="relative z-10">
         <HeroSection onNavigate={handleNavigate} />
-
-        {/* Divider */}
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
-
+        <div className={`h-[1px] bg-gradient-to-r from-transparent to-transparent ${isDark ? 'via-[oklch(1_0_0/8%)]' : 'via-[oklch(0_0_0/8%)]'}`} />
         <Dashboard />
-
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
-
+        <div className={`h-[1px] bg-gradient-to-r from-transparent to-transparent ${isDark ? 'via-[oklch(1_0_0/8%)]' : 'via-[oklch(0_0_0/8%)]'}`} />
         <MatchCenter />
-
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
-
+        <div className={`h-[1px] bg-gradient-to-r from-transparent to-transparent ${isDark ? 'via-[oklch(1_0_0/8%)]' : 'via-[oklch(0_0_0/8%)]'}`} />
         <InteractiveCenter />
-
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
-
+        <div className={`h-[1px] bg-gradient-to-r from-transparent to-transparent ${isDark ? 'via-[oklch(1_0_0/8%)]' : 'via-[oklch(0_0_0/8%)]'}`} />
         <CultureSection />
-
-        <div className="h-[1px] bg-gradient-to-r from-transparent via-[oklch(0_0_0/8%)] to-transparent" />
-
+        <div className={`h-[1px] bg-gradient-to-r from-transparent to-transparent ${isDark ? 'via-[oklch(1_0_0/8%)]' : 'via-[oklch(0_0_0/8%)]'}`} />
         <Leaderboard />
       </main>
 
