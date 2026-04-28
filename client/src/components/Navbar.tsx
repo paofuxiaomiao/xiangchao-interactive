@@ -1,6 +1,6 @@
-/* Dual-theme Navigation Bar with Light/Dark toggle */
+/* Dual-theme Navigation Bar with prominent Light/Dark toggle */
 import { useState } from 'react';
-import { Menu, X, Zap, Sun, Moon } from 'lucide-react';
+import { Menu, X, Zap, Sun, Moon, Lightbulb, LightbulbOff } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 
 interface NavbarProps {
@@ -70,28 +70,28 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           ))}
         </div>
 
-        {/* Right side: theme toggle + live indicator */}
+        {/* Right side: PROMINENT theme toggle + live indicator */}
         <div className="hidden lg:flex items-center gap-4">
-          {/* Theme toggle button */}
+          {/* ===== Theme toggle button - LARGE & PROMINENT ===== */}
           {toggleTheme && (
             <button
               onClick={toggleTheme}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono tracking-wider transition-all duration-300 border
+              className={`flex items-center gap-2.5 px-5 py-2 rounded-full text-sm font-bold tracking-wide transition-all duration-300 border-2 shadow-md
                 ${isDark
-                  ? 'bg-[oklch(0.15_0.01_280)] border-[oklch(1_0_0/10%)] text-[#F59E0B] hover:border-[#F59E0B]/40'
-                  : 'bg-gray-100 border-gray-200 text-gray-600 hover:border-[#6366F1]/40 hover:text-[#6366F1]'
+                  ? 'bg-gradient-to-r from-amber-500/20 to-yellow-500/10 border-amber-400/60 text-amber-300 hover:border-amber-300 hover:shadow-amber-500/30 hover:shadow-lg'
+                  : 'bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border-indigo-400/50 text-indigo-600 hover:border-indigo-500 hover:shadow-indigo-500/20 hover:shadow-lg'
                 }`}
               title={isDark ? '开灯（切换亮色模式）' : '关灯（切换暗色模式）'}
             >
               {isDark ? (
                 <>
-                  <Sun className="w-3.5 h-3.5" />
-                  <span>开灯</span>
+                  <Lightbulb className="w-5 h-5" />
+                  <span className="font-display">开灯</span>
                 </>
               ) : (
                 <>
-                  <Moon className="w-3.5 h-3.5" />
-                  <span>关灯</span>
+                  <LightbulbOff className="w-5 h-5" />
+                  <span className="font-display">关灯</span>
                 </>
               )}
             </button>
@@ -107,14 +107,28 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           </div>
         </div>
 
-        {/* Mobile: theme toggle + menu */}
+        {/* Mobile: PROMINENT theme toggle + menu */}
         <div className="lg:hidden flex items-center gap-2">
           {toggleTheme && (
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-lg transition-colors ${isDark ? 'text-[#F59E0B]' : 'text-gray-600'}`}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 border-2 shadow-sm
+                ${isDark
+                  ? 'bg-amber-500/15 border-amber-400/50 text-amber-300'
+                  : 'bg-indigo-500/10 border-indigo-400/40 text-indigo-600'
+                }`}
             >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDark ? (
+                <>
+                  <Lightbulb className="w-4 h-4" />
+                  <span className="font-display">开灯</span>
+                </>
+              ) : (
+                <>
+                  <LightbulbOff className="w-4 h-4" />
+                  <span className="font-display">关灯</span>
+                </>
+              )}
             </button>
           )}
           <button
